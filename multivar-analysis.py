@@ -62,7 +62,7 @@ df['native-country'] = df['native-country'].astype('category')
 df['income'] = df['income'].astype('category')
 
 features = ['age', 'fnlwgt', 'hours-per-week', 'workclass', 'education', 'marital-status', 'occupation', 'race',
-            'sex', 'native-country']
+            'sex', 'native-country', 'income']
 
 print(df.head())
 print(df.info())
