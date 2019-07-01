@@ -24,29 +24,29 @@ for col in df.columns:
 
 
 df = df.drop(columns=['capital-gain', 'capital-loss']) #drop based on missing data
-df.loc[df['native-country'] != 'United-States', 'native-country'] = 'others'  # Attribute Construction
+# df.loc[df['native-country'] != 'United-States', 'native-country'] = 'others'  # Attribute Construction
 for col in df.columns:
     if (df[col].dtype == np.float64 or df[col].dtype == np.int64):
+        plt.figure()
         df[col].plot.hist(grid=True, bins=40, rwidth=0.9, color='#607c8e')
         plt.title(col)
         plt.tight_layout()
-        plt.show()
         continue
-
+    plt.figure()
     df[col].value_counts().plot(kind='bar')
     plt.title(col)
     plt.tight_layout()
-    plt.show()
-
 
 
 for col in df.columns:
     if (df[col].dtype == np.float64 or df[col].dtype == np.int64):
+        plt.figure()
         df.boxplot(column=[col])
         plt.tight_layout()
-        plt.show()
         continue
+    plt.figure()
     ax = sns.countplot(y=col, data=df)
-    plt.tight_layout()
-    plt.show()
+
+plt.tight_layout()
+plt.show()
 
